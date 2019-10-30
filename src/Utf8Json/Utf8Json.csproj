@@ -1,38 +1,47 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;NET45;NET47</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;netcoreapp3.0;NET45;NET47</TargetFrameworks>
         <Configurations>Debug;Release;</Configurations>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>opensource.snk</AssemblyOriginatorKeyFile>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU' AND '$(TargetFramework)'=='NET45'">
         <LangVersion>5</LangVersion>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-        <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD2_0;NET45</DefineConstants>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;NET45</DefineConstants>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU' AND '$(TargetFramework)'!='NET45'">
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU' AND '$(TargetFramework)'=='NET47'">
         <LangVersion>5</LangVersion>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-        <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD2_0;</DefineConstants>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU' AND '$(TargetFramework)'=='netcoreapp3.0'">
+        <LangVersion>8</LangVersion>
+        <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+        <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_1;</DefineConstants>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' AND '$(TargetFramework)'=='NET45'">
         <LangVersion>5</LangVersion>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
         <DefineConstants>RELEASE;NETSTANDARD;NETSTANDARD2_0;NET45</DefineConstants>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' AND '$(TargetFramework)'!='NET45'">
         <LangVersion>5</LangVersion>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
         <DefineConstants>RELEASE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' AND '$(TargetFramework)'=='netcoreapp3.0'">
+        <LangVersion>8</LangVersion>
+        <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+        <DefineConstants>RELEASE;NETSTANDARD;NETSTANDARD2_1</DefineConstants>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|NET45|AnyCPU'">
@@ -48,6 +57,13 @@
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
       <NoWarn>1701;1702;1705;1591</NoWarn>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.0|AnyCPU'">
+      <DocumentationFile>bin\Release\netcoreapp3.0\Utf8Json.xml</DocumentationFile>
+      <NoWarn>1701;1702;1705;1591</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.0|AnyCPU'">
+      <NoWarn>1701;1702;1705;1591</NoWarn>
+    </PropertyGroup>
 
     <ItemGroup>
         <None Remove="*.meta" />
@@ -57,14 +73,14 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
-        <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" />
-        <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.4.0" />
-        <PackageReference Include="System.ValueTuple" Version="4.4.0" />
+        <PackageReference Include="System.Reflection.Emit" Version="4.6.0" />
+        <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.6.0" />
+        <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.3" />
+        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-        <PackageReference Include="System.ValueTuple" Version="4.4.0" />
+        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
     </ItemGroup>
 
     <ItemGroup>

@@ -27,4 +27,22 @@ namespace Utf8Json
     {
 
     }
+
+
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property, AllowMultiple = false)]
+    public sealed class JsonMemberNameAttribute : Attribute
+    {
+        public JsonMemberNameAttribute(string name)
+        {
+            Name = name;
+        }
+
+        public string Name { get; }
+    }
+
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public sealed partial class JsonMemberIgnoreAttribute : Attribute
+    {
+        public JsonMemberIgnoreAttribute() { }
+    }
 }
