@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;netcoreapp3.0;NET45;NET47</TargetFrameworks>
+        <!-- <TargetFrameworks>netstandard2.0;netcoreapp3.1;NET45;NET47</TargetFrameworks> -->
+        <TargetFrameworks>netstandard2.0;netcoreapp3.1</TargetFrameworks>
         <Configurations>Debug;Release;</Configurations>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>opensource.snk</AssemblyOriginatorKeyFile>
@@ -8,7 +9,7 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU' AND '$(TargetFramework)'=='NET45'">
+    <!-- <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU' AND '$(TargetFramework)'=='NET45'">
         <LangVersion>5</LangVersion>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
         <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;NET45</DefineConstants>
@@ -18,15 +19,15 @@
         <LangVersion>5</LangVersion>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
         <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
-    </PropertyGroup>
+    </PropertyGroup> -->
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU' AND '$(TargetFramework)'=='netcoreapp3.0'">
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU' AND '$(TargetFramework)'=='netcoreapp3.1'">
         <LangVersion>8</LangVersion>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
         <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_1;</DefineConstants>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' AND '$(TargetFramework)'=='NET45'">
+    <!-- <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' AND '$(TargetFramework)'=='NET45'">
         <LangVersion>5</LangVersion>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
         <DefineConstants>RELEASE;NETSTANDARD;NETSTANDARD2_0;NET45</DefineConstants>
@@ -36,20 +37,20 @@
         <LangVersion>5</LangVersion>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
         <DefineConstants>RELEASE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
-    </PropertyGroup>
+    </PropertyGroup> -->
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' AND '$(TargetFramework)'=='netcoreapp3.0'">
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' AND '$(TargetFramework)'=='netcoreapp3.1'">
         <LangVersion>8</LangVersion>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
         <DefineConstants>RELEASE;NETSTANDARD;NETSTANDARD2_1</DefineConstants>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|NET45|AnyCPU'">
+    <!-- <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|NET45|AnyCPU'">
         <DocumentationFile>bin\Release\NET45\Utf8Json.xml</DocumentationFile>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|NET47|AnyCPU'">
         <DocumentationFile>bin\Release\NET47\Utf8Json.xml</DocumentationFile>
-    </PropertyGroup>
+    </PropertyGroup> -->
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
       <DocumentationFile>bin\Release\netstandard2.0\Utf8Json.xml</DocumentationFile>
       <NoWarn>1701;1702;1705;1591</NoWarn>
@@ -57,11 +58,11 @@
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
       <NoWarn>1701;1702;1705;1591</NoWarn>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.0|AnyCPU'">
-      <DocumentationFile>bin\Release\netcoreapp3.0\Utf8Json.xml</DocumentationFile>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">
+      <DocumentationFile>bin\Release\netcoreapp3.1\Utf8Json.xml</DocumentationFile>
       <NoWarn>1701;1702;1705;1591</NoWarn>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.0|AnyCPU'">
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
       <NoWarn>1701;1702;1705;1591</NoWarn>
     </PropertyGroup>
 
@@ -73,9 +74,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.Reflection.Emit" Version="4.6.0" />
+        <!-- <PackageReference Include="System.Reflection.Emit" Version="4.6.0" />
         <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.6.0" />
-        <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.3" />
+        <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.3" /> -->
+        <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
+        <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.7.0" />
+        <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
         <PackageReference Include="System.ValueTuple" Version="4.5.0" />
     </ItemGroup>
 
